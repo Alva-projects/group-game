@@ -18,6 +18,7 @@ function Target (){
         }, [color]);
     return(
     <>
+        <p class="time-container">Time left: <span id="time">10s</span></p>
         <div className="box-target" style={{backgroundColor: color}}> 
         </div>
         <div className="contiainer-theme">
@@ -30,6 +31,12 @@ function Target (){
             </div>
             <button className="btn btn-color" onClick= {changeColor}>Change Theme</button>
         </div>
+        <label for="difficutly" class="difficulty">Difficulty:</label>
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
     </>
 )};
 
