@@ -19,7 +19,7 @@ function Counter() {
                     <button className="btn btn-add" onClick={() => setCount((c) => c + 2)}>Score:</button>
                 </div>
                 <button className="btn btn-reset" onClick={() => setCount((c) => 0)}>Reset counter</button>
-            <button className="btn btn-color" onClick= {changeColor}>Change color</button>
+            <button className="btn btn-color" onClick= {changeColor}>Change Theme</button>
         </div>
     );
 };

@@ -21,7 +21,7 @@ function API () {
 
             </div>
         </div>
-                <button className="btn restart" onClick={fetchData}>New Game</button>
+                <button className="btn restart" onClick={fetchData}>Restart Game</button>
     </>
   );  
 };
