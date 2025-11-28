@@ -6,6 +6,10 @@ import { useEffect, useState } from "react";
 function Target (){
     const [color, setColor] = useState("blue");
     const colors = ["red", "orange", "yellow", "blue", "indigo", "violet"]
+
+    let score = 0;
+    let time = 20;
+    
     const changeColor = () => {
             setColor((current) => {
                 const indexColor = colors.indexOf(current);
@@ -18,7 +22,7 @@ function Target (){
         }, [color]);
     return(
     <>
-        <p class="time-container">Time left: <span id="time">10s</span></p>
+        <p class="time-container">Time left: <span id="time">20s</span></p>
         <div className="box-target" style={{backgroundColor: color}}> 
         </div>
         <div className="contiainer-theme">
@@ -37,6 +41,8 @@ function Target (){
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
           </select>
+
+          
     </>
 )};
 
