@@ -1,5 +1,9 @@
 .theme-target {
-    width: 400px;
-    height: 300px;
+    width: 500px;
+    height: 400px;
     border: 2px solid black;
+}
+
+body {
+    margin: 10px;
 }

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import GameOver from "./GameOver";
 import Theme from "./Theme";
 import Timer from "./Timer";
+import LinearTheme from "./LinearTheme";
 
 function Target (){ 
     return(
