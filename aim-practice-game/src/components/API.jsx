@@ -15,7 +15,7 @@ function API () {
     useEffect(() => {fetchData();}, [])
   return(
     <>
-        <h1 className="">API</h1>
+        <h1 className="">insert API</h1>
         <div>
             <div >
 
