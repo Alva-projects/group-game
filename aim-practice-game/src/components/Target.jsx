@@ -9,12 +9,14 @@ import LinearTheme from "./LinearTheme";
 function Target (){ 
     return(
     <>
-        <label for="difficutly" class="difficulty">Difficulty:</label>
-          <select id="difficulty">
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
+      <div className="difficulty-div">
+          <label for="difficutly" class="difficulty">Difficulty:</label>
+            <select id="difficulty">
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
         <GameOver/>
         <Theme/>
         <Timer/>

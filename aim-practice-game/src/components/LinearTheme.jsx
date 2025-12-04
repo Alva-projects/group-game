@@ -5,9 +5,9 @@ function LinearTheme() {
     const [color, setColor] = useState("red");
     const colors = ["red"]
     const gradientColors = {
-        red: "linear-gradient(135deg, #d6ceceff, #b30000)"
-        
-    }
+        red: "linear-gradient(135deg, #d6ceceff, #b30000)"   
+    };
+
     const changeColor = () => {
                 setColor((current) => {
                     const indexColor = colors.indexOf(current);
@@ -22,10 +22,9 @@ function LinearTheme() {
 
             return (
                 <>
-                <div className="theme-target" style={{background: gradientColors[color]}}> 
-                </div>
-                <button className="btn btn-color" onClick= {changeColor}>Change Theme</button>
-                <p className="theme">Linear Theme: {gradientColors[color]}</p>
+                    <div className="theme-target" style={{background: gradientColors[color]}}> 
+                    </div>
+                    <button className="btn btn-color" onClick= {changeColor}>Change Theme</button>
                 </>
             )
 }
