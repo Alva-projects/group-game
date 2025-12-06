@@ -1,9 +1,13 @@
 import "../target.css"
 import { useState, useEffect } from "react";
 
-function Theme() {
-    const [color, setColor] = useState("blue");
-    const colors = ["red", "orange", "yellow", "blue", "indigo", "violet"]
+function LinearTheme() {
+    const [color, setColor] = useState("red");
+    const colors = ["red"]
+    const gradientColors = {
+        red: "linear-gradient(135deg, #d6ceceff, #b30000)"   
+    };
+
     const changeColor = () => {
                 setColor((current) => {
                     const indexColor = colors.indexOf(current);
@@ -18,12 +22,11 @@ function Theme() {
 
             return (
                 <>
-                <div className="theme-target" style={{backgroundColor: color}}> 
-                </div>
-                <button className="btn btn-color" onClick= {changeColor}>Change Theme</button>
-                <p className="theme">Theme: {color}</p>
+                    <div className="theme-target" style={{background: gradientColors[color]}}> 
+                    </div>
+                    <button className="btn btn-color" onClick= {changeColor}>Change Theme</button>
                 </>
             )
 }
 
-export default Theme;
+export default LinearTheme;
