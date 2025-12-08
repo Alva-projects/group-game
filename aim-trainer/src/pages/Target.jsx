@@ -10,13 +10,15 @@ import "../target.css";
 function Target() {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [visible, setVisible] = useState(true);
-    const [difficulty, setDifficulty] = useState("easy");
+    // const [difficulty, setDifficulty] = useState("easy");
+    // difficulty selection is now handled by the main game settings (see constants.js)
+    // const [difficulty, setDifficulty] = useState("easy");
 
     // Circle size based on difficulty
     const getCircleSize = () => {
-        if (difficulty === "easy") return 70;
-        if (difficulty === "medium") return 50;
-        if (difficulty === "hard") return 35;
+        // if (difficulty === "easy") return 70;
+        // if (difficulty === "medium") return 50;
+        // if (difficulty === "hard") return 35;
         return 50;
     };
 
@@ -53,7 +55,7 @@ function Target() {
     return (
         <>
             {/* Difficulty selector */}
-            <label htmlFor="difficulty" className="difficulty">
+            {/* <label htmlFor="difficulty" className="difficulty">
                 Difficulty:
             </label>
             <select
@@ -64,7 +66,8 @@ function Target() {
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
-            </select>
+            </select> */}
+            {/* Difficulty selector removed — difficulty now comes from main game settings (constants.js) */}
 
             {/* Other teammate components */}
             <GameOver />

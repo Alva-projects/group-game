@@ -5,5 +5,29 @@
 }
 
 body {
-    margin: 10px;
+    margin: 0; /* remove white border around app */
+}
+
+/* Game area used by the target system */
+.game-area {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Circular target */
+.target-circle {
+    position: absolute;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.6)), #ff5252;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    border: 2px solid rgba(255,255,255,0.6);
+    transform-origin: center center;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.target-circle:active {
+    transform: scale(0.9);
+    transition: transform 60ms ease-out;
 }

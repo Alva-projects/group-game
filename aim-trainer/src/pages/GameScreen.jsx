@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Heart, Clock, Pause } from 'lucide-react';
 import { DIFFICULTY_LEVELS, TIME_ATTACK_DURATION } from '../utils/constants';
+import TargetRenderer from '../components/TargetRenderer';
+import '../target.css';
 
 const GameScreen = ({ 
     theme, 
@@ -77,17 +79,25 @@ const GameScreen = ({
     // ===== SURVIVAL MODE LIVES HANDLING =====
     // COLLEAGUE: When a target is missed in SURVIVAL mode, call this function to decrease lives
     // If lives reach 0, the game ends automatically
+    // Prevent double-decrement when multiple missed callbacks fire quickly
+    const lastMissRef = useRef(0);
+    const MISS_DEBOUNCE_MS = 300; // ignore repeat misses within 300ms
+
     const handleMissedTarget = () => {
-        if (gameMode === 'survival') {
-            setLives(l => {
-                const newLives = Math.max(0, l - 1);
-                if (newLives === 0) {
-                    setGameActive(false);
-                    onGameOver(score);
-                }
-                return newLives;
-            });
-        }
+        if (gameMode !== 'survival') return;
+
+        const now = Date.now();
+        if (now - lastMissRef.current < MISS_DEBOUNCE_MS) return; // ignore rapid duplicate
+        lastMissRef.current = now;
+
+        setLives(l => {
+            const newLives = Math.max(0, l - 1);
+            if (newLives === 0) {
+                setGameActive(false);
+                onGameOver(score);
+            }
+            return newLives;
+        });
     };
 
     return (
@@ -162,12 +172,18 @@ const GameScreen = ({
                     />
                 ))}
             */}
-            <div className="flex-1 relative flex items-center justify-center">
-                {/* COLLEAGUE: Add your target rendering code here */}
-                <div className={`${theme.textSec} text-center`}>
-                    <p className="text-xl font-bold mb-2">Target System Area</p>
-                    <p className="text-sm opacity-75">Colleague's custom targets and powerups will render here</p>
-                </div>
+            <div className="flex-1 relative">
+                {/* Render the target system inside the game area */}
+                <TargetRenderer
+                    theme={theme}
+                    gameMode={gameMode}
+                    difficulty={difficulty}
+                    difficultySettings={difficultySettings}
+                    gameActive={gameActive}
+                    isPaused={isPaused}
+                    onTargetClick={handleTargetClick}
+                    onMissedTarget={handleMissedTarget}
+                />
             </div>
 
             {/* ===== PAUSE MENU ===== */}
