@@ -105,8 +105,10 @@ export default function App() {
       // Using set=set2 for monster-style avatars
       const monsterAvatar = `https://robohash.org/${username}.png?set=set2&size=100x100`;
       
-      // Generate a random score between 500-2000 for the rival to beat
-      const randomScore = Math.floor(Math.random() * 1500) + 500; 
+      // Generate a random score between 60-500 for the rival to beat (more reasonable range)
+      const minScore = 60;
+      const maxScore = 500;
+      const randomScore = Math.floor(Math.random() * (maxScore - minScore + 1)) + minScore;
 
       // Update rival state with fetched data
       setRival({

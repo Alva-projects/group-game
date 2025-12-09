@@ -50,7 +50,7 @@ const SettingsModal = ({
                     {/* X button in top right to close modal */}
                     <button 
                         onClick={() => setShowSettings(false)}
-                        className={`${theme.textSec} hover:text-red-400 p-2 rounded-full transition-colors cursor-pointer ${theme.accentBgHover}`}
+                        className={`${theme.textSec} hover:opacity-90 p-2 rounded-full transition-colors cursor-pointer ${theme.accentBgSubtle}`}
                         title="Close Settings"
                     >
                         <X size={24} />
@@ -78,7 +78,7 @@ const SettingsModal = ({
                                     ${theme.inputBg} border cursor-pointer
                                     ${currentThemeId === id 
                                         ? `${t.accentBg}/20 ${t.accentText} border-2 ${t.accentBorder} shadow-lg`  // Styling when selected
-                                        : `${theme.panelBg}/70 ${theme.textSec} ${theme.accentBgHover} border-slate-700`            // Styling when not selected (theme-aware hover)
+                                        : `${theme.panelBg}/70 ${theme.textSec} ${theme.accentBgSubtle} border-slate-700`            // Styling when not selected (theme-aware subtle hover)
                                     }
                                 `}
                             >

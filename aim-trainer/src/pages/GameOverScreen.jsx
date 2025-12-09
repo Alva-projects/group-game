@@ -149,7 +149,7 @@ const GameOverScreen = ({
           {/* MENU BUTTON - Returns to main menu */}
           <button
             onClick={onMenu}
-            className={`flex-1 ${theme.inputBg} ${theme.accentBgHover} ${theme.textMain} border ${theme.panelBorder} font-bold py-3 rounded-lg transition-colors cursor-pointer`}
+            className={`flex-1 ${theme.inputBg} ${theme.accentBgSubtle} ${theme.textMain} border ${theme.panelBorder} font-bold py-3 rounded-lg transition-colors cursor-pointer`}
           >
             MENU
           </button>
@@ -157,7 +157,7 @@ const GameOverScreen = ({
           {/* RETRY BUTTON - Starts same game mode again with same difficulty */}
           <button
             onClick={onRetry}
-            className={`flex-1 ${theme.accentBg} ${theme.accentBgHover} text-white font-bold py-3 rounded-lg transition-transform active:scale-95 cursor-pointer`}
+            className={`flex-1 ${theme.accentBg} ${theme.accentBgSubtle} text-white font-bold py-3 rounded-lg transition-transform active:scale-95 cursor-pointer`}
           >
             RETRY
           </button>

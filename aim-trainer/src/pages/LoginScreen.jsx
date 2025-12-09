@@ -222,7 +222,14 @@ const LoginScreen = ({ theme, onLoginSuccess }) => {
         )}
 
         {/* ===== INPUT FIELDS AND BUTTONS ===== */}
-        <div className="space-y-4">
+        {/* Wrap inputs in a form so pressing Enter triggers submit */}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleAuth();
+          }}
+          className="space-y-4"
+        >
           
           {/* ===== USERNAME INPUT ===== */}
           <div>
@@ -250,9 +257,10 @@ const LoginScreen = ({ theme, onLoginSuccess }) => {
               {/* Only shows during registration mode */}
               {isRegistering && (
                 <button
+                  type="button"
                   onClick={handleGenName}
                   disabled={isLoadingName}
-                  className={`${theme.inputBg} ${theme.textMain} px-3 rounded-lg border ${theme.panelBorder} transition-colors ${theme.accentBgHover} cursor-pointer`}
+                  className={`${theme.inputBg} ${theme.textMain} px-3 rounded-lg border ${theme.panelBorder} transition-colors ${theme.accentBgSubtle} cursor-pointer`}
                   title="Generate Random Callsign"
                 >
                   {/* Show spinner while loading */}
@@ -292,7 +300,7 @@ const LoginScreen = ({ theme, onLoginSuccess }) => {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className={`absolute right-3 top-3 ${theme.textSec} ${theme.accentBgHover} hover:${theme.textMain} transition-colors cursor-pointer`}
+                className={`absolute right-3 top-3 ${theme.textSec} ${theme.accentBgSubtle} hover:${theme.textMain} transition-colors cursor-pointer`}
                 title={showPassword ? "Hide Password" : "Show Password"}
               >
                 {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
@@ -329,9 +337,10 @@ const LoginScreen = ({ theme, onLoginSuccess }) => {
           {/* Text and styling changes based on login vs register mode */}
           {/* Button is disabled during registration if password criteria not met */}
           <button
+            type="submit"
             onClick={handleAuth}
             className={`w-full font-bold py-3 rounded-lg transition-transform active:scale-95 flex items-center justify-center gap-2 mt-2 
-                    ${theme.accentBg} ${theme.accentBgHover} text-white cursor-pointer
+                    ${theme.accentBg} ${theme.accentBgSubtle} text-white cursor-pointer
                     ${
                       isRegistering &&
                       !Object.values(passCriteria).every(Boolean)
@@ -344,7 +353,7 @@ const LoginScreen = ({ theme, onLoginSuccess }) => {
           >
             {isRegistering ? "CREATE PROFILE" : "AUTHENTICATE"}
           </button>
-        </div>
+        </form>
 
         {/* ===== MODE TOGGLE ===== */}
         {/* Allows user to switch between login and registration */}
@@ -355,7 +364,7 @@ const LoginScreen = ({ theme, onLoginSuccess }) => {
               setError("");                // Clear error messages when switching modes
               setSuccessMessage("");        // Clear success messages when switching modes
             }}
-            className={`text-xs ${theme.textSec} ${theme.accentBgHover} hover:${theme.textMain} underline decoration-slate-600 underline-offset-4 cursor-pointer`}
+            className={`text-xs ${theme.textSec} ${theme.accentBgSubtle} hover:${theme.textMain} underline decoration-slate-600 underline-offset-4 cursor-pointer`}
           >
             {isRegistering
               ? "Already have a profile? Login"

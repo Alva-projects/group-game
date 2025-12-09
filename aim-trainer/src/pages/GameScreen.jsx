@@ -140,7 +140,7 @@ const GameScreen = ({
                 <div className="flex gap-3">
                     <button 
                         onClick={() => setIsPaused(true)}
-                        className={`p-2 rounded ${theme.panelBg} border ${theme.panelBorder} ${theme.textSec} hover:${theme.textMain} transition-colors cursor-pointer ${theme.accentBgHover}`}
+                        className={`p-2 rounded ${theme.panelBg} border ${theme.panelBorder} ${theme.textSec} hover:${theme.textMain} transition-colors cursor-pointer ${theme.accentBgSubtle}`}
                         title="Pause Game"
                     >
                         <Pause size={20} />
@@ -207,7 +207,7 @@ const GameScreen = ({
                                     setIsPaused(false);
                                     onQuit();
                                 }}
-                                className={`flex-1 px-6 py-3 rounded ${theme.panelBg} border ${theme.panelBorder} ${theme.textSec} hover:text-red-400 font-bold transition-colors cursor-pointer ${theme.accentBgHover}`}
+                                className={`flex-1 px-6 py-3 rounded ${theme.panelBg} border ${theme.panelBorder} ${theme.textSec} hover:opacity-90 font-bold transition-colors cursor-pointer ${theme.accentBgSubtle}`}
                             >
                                 QUIT
                             </button>
@@ -225,7 +225,7 @@ const GameScreen = ({
                         <p className={`${theme.textSec} mb-4`}>Final Score</p>
                         <button 
                             onClick={() => window.location.reload()}
-                            className={`px-6 py-2 rounded ${theme.accentBg} text-white font-bold hover:opacity-80 transition-opacity cursor-pointer ${theme.accentBgHover}`}
+                            className={`px-6 py-2 rounded ${theme.accentBg} text-white font-bold hover:opacity-80 transition-opacity cursor-pointer ${theme.accentBgSubtle}`}
                         >
                             Redirecting...
                         </button>

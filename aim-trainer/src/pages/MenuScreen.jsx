@@ -81,7 +81,7 @@ const MenuScreen = ({
                {/* Opens settings modal to change theme */}
                <button 
                   onClick={() => setShowSettings(true)}
-                        className={`p-3 rounded-full ${theme.panelBg} border ${theme.panelBorder} ${theme.textSec} hover:${theme.textMain} transition-colors cursor-pointer ${theme.accentBgHover}`}
+                          className={`p-3 rounded-full ${theme.panelBg} border ${theme.panelBorder} ${theme.textSec} hover:${theme.textMain} transition-colors cursor-pointer ${theme.accentBgSubtle}`}
                   title="Open Settings"
                >
                    <Settings size={24} />
@@ -108,7 +108,7 @@ const MenuScreen = ({
                               ${theme.inputBg} border ${theme.panelBorder}
                               ${difficulty === level.id 
                                   ? `${theme.accentBg}/20 ${level.color} border-2 ${theme.accentBorder} shadow-lg`  // Styling when selected
-                                  : `${theme.panelBg}/70 ${theme.textSec} ${theme.accentBgHover}`  // Styling when not selected (theme-aware hover)
+                                  : `${theme.panelBg}/70 ${theme.textSec} ${theme.accentBgSubtle}`  // Styling when not selected (theme-aware subtle hover)
                               }
                               cursor-pointer
                           `}
@@ -169,7 +169,7 @@ const MenuScreen = ({
               {/* ===== SURVIVAL MODE BUTTON ===== */}
               <button 
                   onClick={() => onStartGame('survival')}
-                  className={`group ${theme.panelBg} p-6 rounded-xl border ${theme.panelBorder} hover:shadow-lg transition-all text-left relative overflow-hidden cursor-pointer ${theme.accentBgHover} hover:${theme.accentText}`}
+                  className={`group ${theme.panelBg} p-6 rounded-xl border ${theme.panelBorder} hover:shadow-lg transition-all text-left relative overflow-hidden cursor-pointer ${theme.accentBgSubtle} hover:${theme.accentText}`}
               >
                   {/* Background icon (large, faded) - uses theme accent so it updates with selected theme */}
                                                                         <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
@@ -190,7 +190,7 @@ const MenuScreen = ({
               {/* ===== SCORE ATTACK MODE BUTTON ===== */}
               <button 
                   onClick={() => onStartGame('scoreAttack')}
-                  className={`group ${theme.panelBg} p-6 rounded-xl border ${theme.panelBorder} hover:${theme.accentBorder} hover:shadow-lg transition-all text-left relative overflow-hidden cursor-pointer ${theme.accentBgHover} hover:${theme.accentText}`}
+                  className={`group ${theme.panelBg} p-6 rounded-xl border ${theme.panelBorder} hover:${theme.accentBorder} hover:shadow-lg transition-all text-left relative overflow-hidden cursor-pointer ${theme.accentBgSubtle} hover:${theme.accentText}`}
               >
                   {/* Background icon (large, faded) */}
                                     <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
@@ -214,12 +214,12 @@ const MenuScreen = ({
            <div className="flex gap-4">
               {/* Find New Rival Button */}
               {/* Fetches a random new rival to compete against */}
-              <button onClick={fetchRival} className={`text-xs ${theme.textSec} hover:text-red-400 flex items-center gap-1 cursor-pointer ${theme.accentBgHover}`}>
+              <button onClick={fetchRival} className={`text-xs ${theme.textSec} hover:opacity-90 flex items-center gap-1 cursor-pointer ${theme.accentBgSubtle}`}>
                   <ShieldAlert size={12} /> Find New Rival
               </button>
               {/* Logout Button */}
               {/* Returns user to login screen */}
-              <button onClick={onLogout} className={`text-xs ${theme.textSec} hover:${theme.textMain} cursor-pointer ${theme.accentBgHover}`}>
+              <button onClick={onLogout} className={`text-xs ${theme.textSec} hover:${theme.textMain} cursor-pointer ${theme.accentBgSubtle}`}>
                   Logout
               </button>
            </div>
