@@ -11,7 +11,7 @@ body {
 /* Game area used by the target system */
 .game-area {
     position: relative;
-    width: 40rem;
+    width: 90rem;
     height: 40rem;
     overflow: hidden;
     border: solid oklch(0.792 0.209 151.711) 3px;
