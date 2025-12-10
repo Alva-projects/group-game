@@ -11,11 +11,18 @@ body {
 /* Game area used by the target system */
 .game-area {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 40rem;
+    height: 40rem;
     overflow: hidden;
+    border: solid oklch(0.792 0.209 151.711) 3px;
+
 }
 
+.flex-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* Circular target */
 .target-circle {
     position: absolute;
