@@ -51,33 +51,13 @@ const GameScreen = ({
         return () => clearInterval(timer);
     }, [gameActive, isPaused, gameMode, score, onGameOver]);
 
-    // ===== TARGET HANDLING =====
-    // COLLEAGUE: Add your target rendering logic here
-    // You can create a separate component (e.g., TargetRenderer.jsx) and import it
-    // Then call it here by passing required props: theme, gameMode, difficulty, difficultySettings, gameActive, isPaused, score, onTargetClick
-    // 
-    // Expected behavior from your target system:
-    // 1. Spawn targets based on difficulty (use difficultySettings.initialSpawnRate and difficultySettings.maxTargets)
-    // 2. Targets should shrink or despawn over time
-    // 3. When target is missed (despawns without being clicked):
-    //    - In SURVIVAL mode: decrease lives by 1
-    //    - In SCORE ATTACK mode: no effect on lives
-    // 4. Call onTargetClick when a target is clicked
-    // 5. When lives reach 0 in SURVIVAL mode, call setGameActive(false) and onGameOver(score)
-    //
-    // You can use difficultySettings for:
-    // - difficultySettings.initialSpawnRate: base spawn rate in milliseconds
-    // - difficultySettings.maxTargets: maximum targets on screen
-    // - difficultySettings.shrinkSpeedFactor: how fast targets shrink (1.0 = medium)
-    // - difficultySettings.initialLives: starting lives for SURVIVAL mode
-    //
-    // PLACEHOLDER: Replace this comment with your target component
+    // Target click handler: increment score when player hits a target
     const handleTargetClick = () => {
         setScore(s => s + 1);
     };
 
     // ===== SURVIVAL MODE LIVES HANDLING =====
-    // COLLEAGUE: When a target is missed in SURVIVAL mode, call this function to decrease lives
+    // When a target is missed in SURVIVAL mode, call this function to decrease lives
     // If lives reach 0, the game ends automatically
     // Prevent double-decrement when multiple missed callbacks fire quickly
     const lastMissRef = useRef(0);
@@ -148,30 +128,7 @@ const GameScreen = ({
                 </div>
             </div>
 
-            {/* ===== GAME AREA =====
-                COLLEAGUE: Render your target system here
-                This is the main gameplay area where targets (and powerups) should appear
-                
-                You can either:
-                1. Render targets directly here with inline JSX
-                2. Create a separate component file and import it
-                
-                Make sure to:
-                - Use theme passed as prop for consistent styling
-                - Stop rendering/updating when gameActive is false or isPaused is true
-                - Call handleTargetClick() when a target is clicked (increments score)
-                - Call handleMissedTarget() when a target is missed/despawned
-                
-                Example of what to render:
-                {targets && targets.map(target => (
-                    <TargetComponent 
-                        key={target.id}
-                        target={target}
-                        theme={theme}
-                        onClick={() => handleTargetClick()}
-                    />
-                ))}
-            */}
+            {/* Game area: renders the target system via `TargetRenderer` (see below). */}
             <div className="flex-1 relative">
                 {/* Render the target system inside the game area */}
                 <TargetRenderer
