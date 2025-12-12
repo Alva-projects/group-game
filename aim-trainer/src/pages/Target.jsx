@@ -73,7 +73,6 @@ function Target() {
             <GameOver />
             <Theme />
             <Timer />
-            <LinearTheme />
 
             {/* Game area with target circle */}
             <div id="game-area" className="game-area">
