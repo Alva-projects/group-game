@@ -27,7 +27,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
-import '../target.css';
+import '../styles/target.css';
 import { BASE_RADIUS } from '../utils/constants';
 
 
@@ -269,7 +269,7 @@ const TargetRenderer = ({ theme, gameMode, difficulty, difficultySettings, gameA
    *   - Add visual progress bar showing remaining lifetime
    */
   return (
-    <div id="game-area" ref={containerRef} className={`game-area`}>
+    <div id="game-area" ref={containerRef} className={`game-area ${theme?.accentText || ''}`}>
       {targets.map(t => (
         <div
           key={t.id}

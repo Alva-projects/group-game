@@ -11,11 +11,29 @@ body {
 /* Game area used by the target system */
 .game-area {
     position: relative;
-    width: 90rem;
-    height: 40rem;
+    /* Make the game area fill most of the available play area while keeping sensible max constraints */
+    width: calc(100% - 3rem);
+    height: calc(100% - 3rem);
+    max-width: 120rem;
+    max-height: 70rem;
+    margin: 1.5rem auto; /* center and provide breathing room */
     overflow: hidden;
-    border: solid oklch(0.792 0.209 151.711) 2px;
+    border: none; /* replaced by subtle inset ring */
+    border-radius: 0.75rem;
+    transition: color 300ms ease, opacity 300ms ease, transform 200ms ease;
+}
 
+/* Subtle inset ring that uses the current text color (we set it via theme.accentText class).
+   It is thicker, less opaque, minimalistic and inset so it nearly touches the edges of the game area. */
+.game-area::before {
+    content: '';
+    position: absolute;
+    inset: 6px; /* small inset so ring almost touches edges */
+    pointer-events: none;
+    border-radius: 0.5rem;
+    border: 6px solid currentColor;
+    opacity: 0.25; /* less poppy, more minimal */
+    box-sizing: border-box;
 }
 
 .flex-1 {

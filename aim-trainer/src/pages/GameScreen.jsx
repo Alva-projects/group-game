@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Heart, Clock, Pause } from 'lucide-react';
 import { DIFFICULTY_LEVELS, TIME_ATTACK_DURATION } from '../utils/constants';
 import TargetRenderer from '../components/TargetRenderer';
-import '../target.css';
+import '../styles/target.css';
 
 const GameScreen = ({ 
     theme, 
