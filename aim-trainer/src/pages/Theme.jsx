@@ -1,4 +1,4 @@
-import "../target.css"
+import "../target.css";
 import { useState, useEffect } from "react";
 
 function Theme() {
